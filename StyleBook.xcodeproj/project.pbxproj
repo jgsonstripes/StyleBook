@@ -13,6 +13,7 @@
 		4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C2C1DFE44740054B473 /* StyleBook.xcdatamodeld */; };
 		4C394C301DFE44740054B473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C2F1DFE44740054B473 /* Assets.xcassets */; };
 		4C394C331DFE44740054B473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C311DFE44740054B473 /* LaunchScreen.storyboard */; };
+		4C394C3C1DFE471E0054B473 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		4C394C2F1DFE44740054B473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C394C321DFE44740054B473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C394C341DFE44740054B473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
+		4C394C421DFE4EED0054B473 /* StyleBook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StyleBook-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C394C3C1DFE471E0054B473 /* KakaoOpenSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +44,9 @@
 		4C394C191DFE44740054B473 = {
 			isa = PBXGroup;
 			children = (
-				4C394C241DFE44740054B473 /* StyleBook */,
 				4C394C231DFE44740054B473 /* Products */,
+				4C394C241DFE44740054B473 /* StyleBook */,
+				4C394C3D1DFE474B0054B473 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +76,17 @@
 				4C394C311DFE44740054B473 /* LaunchScreen.storyboard */,
 				4C394C341DFE44740054B473 /* Info.plist */,
 				4C394C2C1DFE44740054B473 /* StyleBook.xcdatamodeld */,
+				4C394C421DFE4EED0054B473 /* StyleBook-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C394C3D1DFE474B0054B473 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,7 +121,8 @@
 				TargetAttributes = {
 					4C394C211DFE44740054B473 = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = R29C6QF296;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -220,6 +235,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -262,6 +278,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -272,11 +289,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = R29C6QF296;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = StyleBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.dev.jgson.StyleBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6f107716-51ce-49d5-8f2f-9e80d2ec9033";
+				PROVISIONING_PROFILE_SPECIFIER = test2;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -285,11 +311,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = StyleBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.dev.jgson.StyleBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/$(PROJECT_NAME)-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -313,6 +346,7 @@
 				4C394C391DFE44740054B473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
