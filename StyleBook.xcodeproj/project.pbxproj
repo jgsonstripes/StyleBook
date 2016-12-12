@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C251DFE44740054B473 /* AppDelegate.swift */; };
-		4C394C281DFE44740054B473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C271DFE44740054B473 /* ViewController.swift */; };
+		4C394C281DFE44740054B473 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C271DFE44740054B473 /* MainController.swift */; };
 		4C394C2B1DFE44740054B473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C291DFE44740054B473 /* Main.storyboard */; };
 		4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C2C1DFE44740054B473 /* StyleBook.xcdatamodeld */; };
 		4C394C301DFE44740054B473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C2F1DFE44740054B473 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		4C394C221DFE44740054B473 /* StyleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C394C251DFE44740054B473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4C394C271DFE44740054B473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4C394C271DFE44740054B473 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		4C394C2A1DFE44740054B473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C394C2D1DFE44740054B473 /* StyleBook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StyleBook.xcdatamodel; sourceTree = "<group>"; };
 		4C394C2F1DFE44740054B473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,15 +56,23 @@
 		4C394C241DFE44740054B473 /* StyleBook */ = {
 			isa = PBXGroup;
 			children = (
-				4C394C251DFE44740054B473 /* AppDelegate.swift */,
-				4C394C271DFE44740054B473 /* ViewController.swift */,
+				4C394C3A1DFE45500054B473 /* Supporting Files */,
+				4C394C271DFE44740054B473 /* MainController.swift */,
 				4C394C291DFE44740054B473 /* Main.storyboard */,
+			);
+			path = StyleBook;
+			sourceTree = "<group>";
+		};
+		4C394C3A1DFE45500054B473 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C394C251DFE44740054B473 /* AppDelegate.swift */,
 				4C394C2F1DFE44740054B473 /* Assets.xcassets */,
 				4C394C311DFE44740054B473 /* LaunchScreen.storyboard */,
 				4C394C341DFE44740054B473 /* Info.plist */,
 				4C394C2C1DFE44740054B473 /* StyleBook.xcdatamodeld */,
 			);
-			path = StyleBook;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */,
-				4C394C281DFE44740054B473 /* ViewController.swift in Sources */,
+				4C394C281DFE44740054B473 /* MainController.swift in Sources */,
 				4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
