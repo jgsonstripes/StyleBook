@@ -16,7 +16,6 @@ class MainController: UIViewController {
                 print("로그아웃 성공")
                 print("\(KOSession.shared().isOpen())")
                 print("\(KOSession.shared().accessToken)")
-
             } else {
                 print("로그아웃 실패")
             }
@@ -27,16 +26,22 @@ class MainController: UIViewController {
         super.viewDidLoad()
 //        addKaKaoLoginButton()
         
-        let viewcontroller = UIViewController()
-        
-        viewcontroller.view.backgroundColor = UIColor.brown
-        viewcontroller.view.frame = self.view.frame
-        viewcontroller.modalTransitionStyle = .crossDissolve
-        self.navigationController?.present(viewcontroller, animated: true, completion: {
-            self.addKaKaoLoginButton(viewcontroller: viewcontroller)
-        })
-        
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !KOSession.shared().isOpen() {
+            let viewcontroller = UIViewController()
+            
+            viewcontroller.view.backgroundColor = UIColor.brown
+            viewcontroller.view.frame = self.view.frame
+            viewcontroller.modalTransitionStyle = .crossDissolve
+            
+            addAppNameView(controller: viewcontroller)
+            
+            self.navigationController?.present(viewcontroller, animated: true, completion: {
+                self.addKaKaoLoginButton(viewcontroller: viewcontroller)
+            })
+        }
     }
 
     func addKaKaoLoginButton(viewcontroller: UIViewController) {
@@ -54,6 +59,20 @@ class MainController: UIViewController {
         }, completion: nil)
     }
     
+    func addAppNameView(controller: UIViewController) {
+        let appName = UILabel()
+        appName.text = "StyleBook"
+        appName.textAlignment = .center
+        appName.font = UIFont.systemFont(ofSize: 32)
+        appName.frame = CGRect(x: 0, y: 0, width: controller.view.bounds.size.width, height: 0)
+        
+        controller.view.addSubview(appName)
+        
+        appName.leadingAnchor.constraint(equalTo: controller.view.leadingAnchor).isActive = true
+        appName.trailingAnchor.constraint(equalTo: controller.view.trailingAnchor).isActive = true
+        appName.topAnchor.constraint(equalTo: controller.view.topAnchor, constant: 144).isActive = true
+    }
+    
     func invokeLoginWithTarget() {
         if let session = KOSession.shared(){
             if session.isOpen() {
@@ -64,6 +83,9 @@ class MainController: UIViewController {
                 if error == nil {
                     if session.isOpen() {
                         print("로그인 성공")
+                        
+                        // 로그인 후 로그인 화면 제거
+                        self.navigationController?.presentedViewController?.dismiss(animated: true, completion: nil)
                         
                         print("\(KOSession.shared().isOpen())")
                         print("\(KOSession.shared().accessToken)")
