@@ -14,10 +14,14 @@ extension UIBezierPath
     {
         guard !interpolationPoints.isEmpty else { return }
         
+        
         func midPoint(point1: CGFloat, point2: CGFloat) -> CGFloat{
             return (point1 - point2) / 2.0
         }
         
+        func midPoint2(point1: CGFloat, point2: CGFloat) -> CGFloat{
+            return (point1 + point2) / 2.0
+        }
         // CGPoint[0] 첫 터치 부분으로 이동
         self.move(to: interpolationPoints[0])
         
@@ -66,6 +70,7 @@ extension UIBezierPath
             let controlPoint2 = CGPoint(x: currentPoint.x - mx * alpha, y: currentPoint.y - my * alpha)
             
             self.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+            
         }
     }
 }

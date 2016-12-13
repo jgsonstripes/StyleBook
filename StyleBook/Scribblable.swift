@@ -30,13 +30,15 @@ class ScribbleView: UIView, Scribblable {
     required init() {
         super.init(frame: CGRect.zero)
         
+        backgroundLayer.lineCap = kCALineCapRound
         backgroundLayer.strokeColor = UIColor.darkGray.cgColor
         backgroundLayer.fillColor = nil
-        backgroundLayer.lineWidth = 2
+        backgroundLayer.lineWidth = 4
         
+        drawingLayer.lineCap = kCALineCapRound
         drawingLayer.strokeColor = UIColor.black.cgColor
         drawingLayer.fillColor = nil
-        drawingLayer.lineWidth = 2
+        drawingLayer.lineWidth = 4
         
         layer.addSublayer(backgroundLayer)
         layer.addSublayer(drawingLayer)
@@ -57,7 +59,15 @@ class ScribbleView: UIView, Scribblable {
     }
     
     func appendScribble(_ point: CGPoint) {
-        interpolationPoints.append(point)
+        if point.y > self.bounds.height {
+            let newPoint = CGPoint(x: point.x, y: self.bounds.height)
+            interpolationPoints.append(newPoint)
+        } else if point.y < 0 {
+            let newPoint = CGPoint(x: point.x, y: 0)
+            interpolationPoints.append(newPoint)
+        } else {
+            interpolationPoints.append(point)
+        }
         
         hermitePath.removeAllPoints()
         hermitePath.interpolatePointsWithHermite(interpolationPoints)

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ImageControl: UIImageView {
+class EnlargeView: UIImageView {
 
     var corner: [CGRect] = []
     

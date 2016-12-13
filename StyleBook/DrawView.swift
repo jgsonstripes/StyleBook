@@ -9,7 +9,7 @@
 import UIKit
 
 class DrawView : UIImageView {
-    var lastPoint: CGPoint!
+    
     var maxX: CGFloat = 0
     var maxY: CGFloat = 0
     var minX: CGFloat = 1000
@@ -22,9 +22,10 @@ class DrawView : UIImageView {
     var enlargeImage: UIImageView?
     
     var firstPoint: CGPoint?
+    var lastPoint: CGPoint!
     
     let scribbleView = ScribbleView()
-    var touchOrigin: ScribbleView?
+//    var touchOrigin: ScribbleView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +38,8 @@ class DrawView : UIImageView {
     }
     
     func setup() {
-        scribbleView.frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
+        scribbleView.frame = CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height)
+        
         self.addSubview(scribbleView)
     }
 
@@ -46,53 +48,60 @@ class DrawView : UIImageView {
         guard let location = touches.first?.location(in: self) else { return }
         
         firstPoint = location
-        if scribbleView.frame.contains(location) {
-            touchOrigin = scribbleView
-        } else {
-            touchOrigin = nil
-            return
-        }
+//        if scribbleView.frame.contains(location) {
+//            touchOrigin = scribbleView
+//        } else {
+//            touchOrigin = nil
+//            return
+//        }
         
-        if let adjustedLocationInView = touches.first?.location(in: touchOrigin) {
+//        if let adjustedLocationInView = touches.first?.location(in: touchOrigin) {
+//            scribbleView.beginScribble(adjustedLocationInView)
+//        }
+
+        if let adjustedLocationInView = touches.first?.location(in: scribbleView) {
             scribbleView.beginScribble(adjustedLocationInView)
         }
-        
-        if enlargeView == nil {
-            // 확대 이미지
-            enlargeView = UIView(frame: CGRect(x: location.x, y: location.y, width: 100, height: 100))
-            enlargeView?.backgroundColor = UIColor.clear
-            enlargeView?.contentMode = .center
-            let rect = CGRect(x: 25, y: 0, width: 50, height: 50)
-            enlargeImage = UIImageView(frame: rect)
-            enlargeImage?.contentMode = .scaleAspectFit
-            let maskLayer = CALayer()
-            maskLayer.frame = (enlargeImage?.bounds)!
-            let circleLayer = CAShapeLayer()
-            circleLayer.path = UIBezierPath(roundedRect: rect , cornerRadius: 100).cgPath
-            circleLayer.fillColor = UIColor.black.cgColor
-            maskLayer.addSublayer(circleLayer)
-            enlargeView?.layer.mask = maskLayer
-            enlargeView?.addSubview(enlargeImage!)
-            self.addSubview(enlargeView!)
-        }
+
+//        if enlargeView == nil {
+//            // 확대 이미지
+//            enlargeView = UIView(frame: CGRect(x: location.x, y: location.y, width: 100, height: 100))
+//            enlargeView?.backgroundColor = UIColor.clear
+//            enlargeView?.contentMode = .center
+//            let rect = CGRect(x: 25, y: 0, width: 50, height: 50)
+//            enlargeImage = UIImageView(frame: rect)
+//            enlargeImage?.contentMode = .scaleAspectFit
+//            let maskLayer = CALayer()
+//            maskLayer.frame = (enlargeImage?.bounds)!
+//            let circleLayer = CAShapeLayer()
+//            circleLayer.path = UIBezierPath(roundedRect: rect , cornerRadius: 100).cgPath
+//            circleLayer.fillColor = UIColor.black.cgColor
+//            maskLayer.addSublayer(circleLayer)
+//            enlargeView?.layer.mask = maskLayer
+//            enlargeView?.addSubview(enlargeImage!)
+//            self.addSubview(enlargeView!)
+//        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first,
-            let coalescedTouches = event?.coalescedTouches(for: touch),
-            let touchOrigin = touchOrigin else { return }
+            let coalescedTouches = event?.coalescedTouches(for: touch)
+//            let touchOrigin = touchOrigin
+            else { return }
         
         coalescedTouches.forEach {
-            scribbleView.appendScribble($0.location(in: touchOrigin))
+//            scribbleView.appendScribble($0.location(in: touchOrigin))
+            scribbleView.appendScribble($0.location(in: scribbleView))
         }
         
-        let currentPoint = touch.location(in: self)
-        enlargeView?.center = CGPoint(x: currentPoint.x, y: currentPoint.y - (enlargeView?.bounds.height)!/2)
-        if let snap = displayView?.snapshot(of: CGRect(x: currentPoint.x - (enlargeImage?.bounds.width)!/2, y: currentPoint.y - (enlargeImage?.bounds.height)!/2, width: 50, height: 50)){
-            let line = self.snapshot(of: CGRect(x: currentPoint.x - (enlargeImage?.bounds.width)!/2, y: currentPoint.y - (enlargeImage?.bounds.height)!/2, width: 50, height: 50))
-            
-            enlargeImage?.image = snap.mergeImage(frontImage: line!, size: CGSize(width: 50, height: 50))
-        }
+//        let currentPoint = touch.location(in: self)
+        
+//        enlargeView?.center = CGPoint(x: currentPoint.x, y: currentPoint.y - (enlargeView?.bounds.height)!/2)
+//        if let snap = displayView?.snapshot(of: CGRect(x: currentPoint.x - (enlargeImage?.bounds.width)!/2, y: currentPoint.y - (enlargeImage?.bounds.height)!/2, width: 50, height: 50)){
+//            let line = self.snapshot(of: CGRect(x: currentPoint.x - (enlargeImage?.bounds.width)!/2, y: currentPoint.y - (enlargeImage?.bounds.height)!/2, width: 50, height: 50))
+//            
+//            enlargeImage?.image = snap.mergeImage(frontImage: line!, size: CGSize(width: 50, height: 50))
+//        }
 
         setNeedsDisplay()
     }
