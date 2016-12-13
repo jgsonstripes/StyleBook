@@ -69,8 +69,13 @@ extension UIBezierPath
             
             let controlPoint2 = CGPoint(x: currentPoint.x - mx * alpha, y: currentPoint.y - my * alpha)
             
-            self.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
-            
+            if n == 2 {
+                self.addLine(to: endPoint)
+            } else if n==3 {
+                self.addQuadCurve(to: endPoint, controlPoint: controlPoint2)
+            } else{
+                self.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
+            }
         }
     }
 }
