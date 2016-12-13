@@ -30,7 +30,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StyleBook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95F-YA-1uG">
-                                <rect key="frame" x="0.0" y="164" width="375" height="39"/>
+                                <rect key="frame" x="0.0" y="208" width="375" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,16 +45,94 @@
                             <constraint firstItem="95F-YA-1uG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="144" id="z2v-7D-KHY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="IPq-Cr-sK8"/>
+                    <navigationItem key="navigationItem" id="IPq-Cr-sK8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4Je-Cc-2Mz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="ReO-jz-NzG" kind="show" id="fUv-Y0-4pn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="810" y="-645"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="E2p-N5-3TW">
+            <objects>
+                <viewController id="ReO-jz-NzG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="prM-3G-Unt"/>
+                        <viewControllerLayoutGuide type="bottom" id="YJD-7o-Tsn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LPU-9S-o3M">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dL5-ua-mef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1628" y="-645"/>
+        </scene>
+        <!--Login Controller-->
+        <scene sceneID="wuh-9V-wxN">
+            <objects>
+                <viewController storyboardIdentifier="Login" modalTransitionStyle="crossDissolve" id="Ui4-pv-GDe" customClass="LoginController" customModule="StyleBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Vx-Oh-qJk"/>
+                        <viewControllerLayoutGuide type="bottom" id="A1y-ff-YGH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hkd-kH-K7X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CyS-Nd-CCQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StyleBook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9J-R3-tO0">
+                                <rect key="frame" x="0.0" y="164" width="375" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVF-mN-ipe" customClass="KOLoginButton">
+                                <rect key="frame" x="30" y="600" width="315" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="uYD-tp-Hnq"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="touchLogin:" destination="Ui4-pv-GDe" eventType="touchUpInside" id="9HG-wG-7oT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A1y-ff-YGH" firstAttribute="top" secondItem="CyS-Nd-CCQ" secondAttribute="bottom" id="5Bz-2n-y5C"/>
+                            <constraint firstItem="CyS-Nd-CCQ" firstAttribute="top" secondItem="5Vx-Oh-qJk" secondAttribute="bottom" constant="-20" id="9JO-7o-Gsu"/>
+                            <constraint firstItem="fVF-mN-ipe" firstAttribute="leading" secondItem="hkd-kH-K7X" secondAttribute="leadingMargin" constant="14" id="AaW-ew-eB7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fVF-mN-ipe" secondAttribute="trailing" constant="14" id="FuD-pE-hDj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CyS-Nd-CCQ" secondAttribute="trailing" constant="-16" id="OCD-n3-ZKa"/>
+                            <constraint firstItem="CyS-Nd-CCQ" firstAttribute="leading" secondItem="hkd-kH-K7X" secondAttribute="leadingMargin" constant="-16" id="TGP-cE-zgN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f9J-R3-tO0" secondAttribute="trailing" constant="-16" id="Uob-Zs-cyb"/>
+                            <constraint firstItem="f9J-R3-tO0" firstAttribute="top" secondItem="5Vx-Oh-qJk" secondAttribute="bottom" constant="144" id="b5n-oe-GgW"/>
+                            <constraint firstItem="A1y-ff-YGH" firstAttribute="top" secondItem="fVF-mN-ipe" secondAttribute="bottom" constant="25" id="f0g-c8-m19"/>
+                            <constraint firstItem="f9J-R3-tO0" firstAttribute="leading" secondItem="hkd-kH-K7X" secondAttribute="leadingMargin" constant="-16" id="xHI-nK-ic1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LoginScroll" destination="CyS-Nd-CCQ" id="pkS-YL-Aqh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUI-wK-wDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808.79999999999995" y="29.23538230884558"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="93h-dq-lij">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="olY-No-f9I" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="olY-No-f9I" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fTe-Y6-1V1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

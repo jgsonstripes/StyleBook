@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2433E3F5E19D0B257E5ABCDA /* Pods_StyleBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */; };
+		4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4D61DFF823E0086B19E /* LoginController.swift */; };
 		4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C251DFE44740054B473 /* AppDelegate.swift */; };
 		4C394C281DFE44740054B473 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C271DFE44740054B473 /* MainController.swift */; };
 		4C394C2B1DFE44740054B473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C291DFE44740054B473 /* Main.storyboard */; };
@@ -17,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C23B4D61DFF823E0086B19E /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		4C394C221DFE44740054B473 /* StyleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C394C251DFE44740054B473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C394C271DFE44740054B473 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -27,6 +30,9 @@
 		4C394C341DFE44740054B473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		4C394C421DFE4EED0054B473 /* StyleBook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StyleBook-Bridging-Header.h"; sourceTree = "<group>"; };
+		7B85DD19694A33AAAF0C16EC /* Pods-StyleBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.debug.xcconfig"; sourceTree = "<group>"; };
+		8975A99178BD46AAF4C350AC /* Pods-StyleBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.release.xcconfig"; sourceTree = "<group>"; };
+		BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyleBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,18 +41,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C394C3C1DFE471E0054B473 /* KakaoOpenSDK.framework in Frameworks */,
+				2433E3F5E19D0B257E5ABCDA /* Pods_StyleBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		121F429C544FA1D85AFE3782 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B85DD19694A33AAAF0C16EC /* Pods-StyleBook.debug.xcconfig */,
+				8975A99178BD46AAF4C350AC /* Pods-StyleBook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4C394C191DFE44740054B473 = {
 			isa = PBXGroup;
 			children = (
 				4C394C231DFE44740054B473 /* Products */,
 				4C394C241DFE44740054B473 /* StyleBook */,
 				4C394C3D1DFE474B0054B473 /* Frameworks */,
+				121F429C544FA1D85AFE3782 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +81,7 @@
 				4C394C3A1DFE45500054B473 /* Supporting Files */,
 				4C394C271DFE44740054B473 /* MainController.swift */,
 				4C394C291DFE44740054B473 /* Main.storyboard */,
+				4C23B4D61DFF823E0086B19E /* LoginController.swift */,
 			);
 			path = StyleBook;
 			sourceTree = "<group>";
@@ -85,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */,
+				BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,9 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C394C371DFE44740054B473 /* Build configuration list for PBXNativeTarget "StyleBook" */;
 			buildPhases = (
+				72F23C4DEF154FF6023DF268 /* [CP] Check Pods Manifest.lock */,
 				4C394C1E1DFE44740054B473 /* Sources */,
 				4C394C1F1DFE44740054B473 /* Frameworks */,
 				4C394C201DFE44740054B473 /* Resources */,
+				E049D3EBDB25182213B04575 /* [CP] Embed Pods Frameworks */,
+				A4423722957823CD55FCDD1E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,12 +179,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		72F23C4DEF154FF6023DF268 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A4423722957823CD55FCDD1E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E049D3EBDB25182213B04575 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C394C1E1DFE44740054B473 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */,
+				4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */,
 				4C394C281DFE44740054B473 /* MainController.swift in Sources */,
 				4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */,
 			);
@@ -287,6 +358,7 @@
 		};
 		4C394C381DFE44740054B473 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B85DD19694A33AAAF0C16EC /* Pods-StyleBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R29C6QF296;
@@ -309,6 +381,7 @@
 		};
 		4C394C391DFE44740054B473 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8975A99178BD46AAF4C350AC /* Pods-StyleBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";

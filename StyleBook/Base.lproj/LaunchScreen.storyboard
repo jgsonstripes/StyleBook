@@ -22,15 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="y2t-0S-jcU">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StyleBook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsC-6J-T4L">
-                                <rect key="frame" x="0.0" y="164" width="375" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright (C) 2016 jgson all rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mab-Si-2bO">
-                                <rect key="frame" x="0.0" y="626" width="375" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="632.5" width="375" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -39,7 +42,11 @@
                         <constraints>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Mab-Si-2bO" secondAttribute="bottom" constant="20" id="E5M-Zy-SvC"/>
                             <constraint firstItem="fsC-6J-T4L" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="PRk-Mf-fcw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="y2t-0S-jcU" secondAttribute="trailing" constant="-16" id="RZE-5Q-T7m"/>
                             <constraint firstItem="fsC-6J-T4L" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="144" id="RdH-mo-lFq"/>
+                            <constraint firstItem="y2t-0S-jcU" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="SCi-Cb-pkB"/>
+                            <constraint firstItem="y2t-0S-jcU" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="TAM-Kn-TUW"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="y2t-0S-jcU" secondAttribute="bottom" id="X60-CQ-g6w"/>
                             <constraint firstItem="Mab-Si-2bO" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-16" id="hwT-ih-W7T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fsC-6J-T4L" secondAttribute="trailing" constant="-16" id="shY-0a-Ptp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mab-Si-2bO" secondAttribute="trailing" constant="-16" id="uZJ-mu-nCh"/>
@@ -51,4 +58,7 @@
             <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="SplashImage" width="187" height="333"/>
+    </resources>
 </document>
