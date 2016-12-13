@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -58,10 +59,10 @@
             </objects>
             <point key="canvasLocation" x="810" y="-645"/>
         </scene>
-        <!--View Controller-->
+        <!--Crop Controller-->
         <scene sceneID="E2p-N5-3TW">
             <objects>
-                <viewController id="ReO-jz-NzG" sceneMemberID="viewController">
+                <viewController id="ReO-jz-NzG" customClass="CropController" customModule="StyleBook" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="prM-3G-Unt"/>
                         <viewControllerLayoutGuide type="bottom" id="YJD-7o-Tsn"/>
@@ -69,12 +70,89 @@
                     <view key="view" contentMode="scaleToFill" id="LPU-9S-o3M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-eJ-vb2">
+                                <rect key="frame" x="0.0" y="586" width="375" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="poL-vB-yiY"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C9H-5t-a80">
+                                <rect key="frame" x="0.0" y="64" width="375" height="522"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UQt-Ji-uNa">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rqF-PM-xac" customClass="DrawView" customModule="StyleBook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ClL-Sa-4yq" appends="YES" id="QzB-bz-Gra"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rqF-PM-xac" firstAttribute="trailing" secondItem="UQt-Ji-uNa" secondAttribute="trailing" id="6sg-rW-acv"/>
+                                    <constraint firstItem="rqF-PM-xac" firstAttribute="bottom" secondItem="UQt-Ji-uNa" secondAttribute="bottom" id="8O3-Al-mTy"/>
+                                    <constraint firstItem="UQt-Ji-uNa" firstAttribute="top" secondItem="C9H-5t-a80" secondAttribute="top" id="Ndi-I9-fHj"/>
+                                    <constraint firstAttribute="bottom" secondItem="UQt-Ji-uNa" secondAttribute="bottom" id="Os1-Lt-yZ8"/>
+                                    <constraint firstItem="UQt-Ji-uNa" firstAttribute="leading" secondItem="C9H-5t-a80" secondAttribute="leading" id="SZh-zp-6Ey"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQt-Ji-uNa" secondAttribute="trailing" id="fml-09-Hgy"/>
+                                    <constraint firstItem="rqF-PM-xac" firstAttribute="leading" secondItem="UQt-Ji-uNa" secondAttribute="leading" id="gf9-vh-bto"/>
+                                    <constraint firstItem="rqF-PM-xac" firstAttribute="top" secondItem="UQt-Ji-uNa" secondAttribute="top" id="xdQ-53-j1q"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="C9H-5t-a80" firstAttribute="top" secondItem="prM-3G-Unt" secondAttribute="bottom" id="05Z-Zl-ad7"/>
+                            <constraint firstItem="M1M-eJ-vb2" firstAttribute="top" secondItem="C9H-5t-a80" secondAttribute="bottom" id="5wv-mc-wmQ"/>
+                            <constraint firstItem="YJD-7o-Tsn" firstAttribute="top" secondItem="M1M-eJ-vb2" secondAttribute="bottom" id="D6g-OU-vgw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C9H-5t-a80" secondAttribute="trailing" constant="-16" id="GjF-Tc-D89"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M1M-eJ-vb2" secondAttribute="trailing" constant="-16" id="K8U-ZI-n3l"/>
+                            <constraint firstItem="M1M-eJ-vb2" firstAttribute="leading" secondItem="LPU-9S-o3M" secondAttribute="leadingMargin" constant="-16" id="Lee-HQ-Jfb"/>
+                            <constraint firstItem="C9H-5t-a80" firstAttribute="leading" secondItem="LPU-9S-o3M" secondAttribute="leadingMargin" constant="-16" id="alF-sx-knW"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="iNK-dp-CiZ">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Crop" id="FQO-iG-lvt">
+                                <connections>
+                                    <action selector="crop:" destination="ReO-jz-NzG" id="bhD-36-e8t"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Clear" id="jVZ-ch-HOj">
+                                <connections>
+                                    <action selector="clear:" destination="ReO-jz-NzG" id="Ysp-US-7Ui"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Back" id="sEN-N8-d9U">
+                                <connections>
+                                    <action selector="back:" destination="ReO-jz-NzG" id="Z6c-Of-CwV"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Save" id="zsk-hI-o59">
+                                <connections>
+                                    <action selector="save:" destination="ReO-jz-NzG" id="Ole-rv-RPe"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="draw" destination="rqF-PM-xac" id="d36-mF-bUF"/>
+                        <outlet property="picture" destination="UQt-Ji-uNa" id="bIE-dm-JlN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dL5-ua-mef" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ClL-Sa-4yq">
+                    <connections>
+                        <action selector="touchImageWithGesture:" destination="ReO-jz-NzG" id="HnQ-I9-cP0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1628" y="-645"/>
+            <point key="canvasLocation" x="1628" y="-645.42728635682158"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="wuh-9V-wxN">
