@@ -33,13 +33,12 @@ class ScribbleView: UIView, Scribblable {
         backgroundLayer.lineCap = kCALineCapRound
         backgroundLayer.strokeColor = UIColor.darkGray.cgColor
         backgroundLayer.fillColor = nil
-        backgroundLayer.lineWidth = 4
+        backgroundLayer.lineWidth = 0.5
         
         drawingLayer.lineCap = kCALineCapRound
         drawingLayer.strokeColor = UIColor.black.cgColor
         drawingLayer.fillColor = nil
-        drawingLayer.lineWidth = 4
-        
+        drawingLayer.lineWidth = 0.5
         layer.addSublayer(backgroundLayer)
         layer.addSublayer(drawingLayer)
         
@@ -59,20 +58,29 @@ class ScribbleView: UIView, Scribblable {
     }
     
     func appendScribble(_ point: CGPoint) {
-        if point.y > self.bounds.height {
-            let newPoint = CGPoint(x: point.x, y: self.bounds.height)
-            interpolationPoints.append(newPoint)
-        } else if point.y < 0 {
-            let newPoint = CGPoint(x: point.x, y: 0)
-            interpolationPoints.append(newPoint)
-        } else {
-            interpolationPoints.append(point)
+        let a = interpolationPoints[interpolationPoints.count-1]
+        let b = point
+        let xDist = (b.x - a.x);
+        let yDist = (b.y - a.y);
+        let distance = sqrt((xDist * xDist) + (yDist * yDist));
+        print("distance : \(distance)")
+        if distance > 2  {
+            if point.y > self.bounds.height {
+                let newPoint = CGPoint(x: point.x, y: self.bounds.height)
+                interpolationPoints.append(newPoint)
+            } else if point.y < 0 {
+                let newPoint = CGPoint(x: point.x, y: 0)
+                interpolationPoints.append(newPoint)
+            } else {
+                interpolationPoints.append(point)
+            }
         }
+//        hermitePath.removeAllPoints()
+//        hermitePath.interpolatePointsWithHermite(interpolationPoints)
         
-        hermitePath.removeAllPoints()
-        hermitePath.interpolatePointsWithHermite(interpolationPoints)
+//        drawingLayer.path = hermitePath.cgPath
+        drawingLayer.path = UIBezierPath(catmullRomInterpolatedPoints: interpolationPoints, closed: false, alpha: 1)?.cgPath
         
-        drawingLayer.path = hermitePath.cgPath
     }
     
     func endScribble() {
@@ -81,11 +89,13 @@ class ScribbleView: UIView, Scribblable {
             hermitePath.append(UIBezierPath(cgPath: backgroundPath))
         }
         
-        backgroundLayer.path = hermitePath.cgPath
+//        backgroundLayer.path = hermitePath.cgPath
+        backgroundLayer.path = UIBezierPath(catmullRomInterpolatedPoints: interpolationPoints, closed: false, alpha: 1)?.cgPath
         
         hermitePath.removeAllPoints()
         
-        drawingLayer.path = hermitePath.cgPath
+//        drawingLayer.path = hermitePath.cgPath
+        drawingLayer.path = UIBezierPath(catmullRomInterpolatedPoints: interpolationPoints, closed: false, alpha: 1)?.cgPath
     }
     
     func clearScribble() {

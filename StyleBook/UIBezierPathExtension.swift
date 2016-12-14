@@ -71,15 +71,11 @@ extension UIBezierPath
             
             if interpolationPoints.count == 2 {
                 self.addLine(to: controlPoint1)
-//                print("2")
             } else if interpolationPoints.count==3 {
                 self.addQuadCurve(to: controlPoint2, controlPoint: controlPoint1)
-//                print("3")
-            } else if interpolationPoints.count==3 {
-                self.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
-//                print("4")
             }
-            print("\(interpolationPoints.count)")
+            
+            self.addCurve(to: endPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
         }
     }
     

@@ -83,7 +83,12 @@ class DrawView : UIImageView {
 //        }
     }
     
+    var preMili: Date?
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let date = Date()
+        if let time = preMili {
+            print("\(date.timeIntervalSince(time))")
+        }
         guard let touch = touches.first,
             let coalescedTouches = event?.coalescedTouches(for: touch)
 //            let touchOrigin = touchOrigin
@@ -104,6 +109,7 @@ class DrawView : UIImageView {
 //        }
 
         setNeedsDisplay()
+        preMili = date
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
