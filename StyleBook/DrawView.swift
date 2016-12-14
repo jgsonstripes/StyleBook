@@ -48,6 +48,20 @@ class DrawView : UIImageView {
         guard let location = touches.first?.location(in: self) else { return }
         
         firstPoint = location
+        let circlePath = UIBezierPath(arcCenter: firstPoint!, radius: CGFloat(3), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        //change the fill color
+        shapeLayer.fillColor = UIColor.red.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        //you can change the line width
+//        shapeLayer.lineWidth = 3.0
+        
+        layer.addSublayer(shapeLayer)
+        
 //        if scribbleView.frame.contains(location) {
 //            touchOrigin = scribbleView
 //        } else {
@@ -59,9 +73,9 @@ class DrawView : UIImageView {
 //            scribbleView.beginScribble(adjustedLocationInView)
 //        }
 
-        if let adjustedLocationInView = touches.first?.location(in: scribbleView) {
-            scribbleView.beginScribble(adjustedLocationInView)
-        }
+//        if let adjustedLocationInView = touches.first?.location(in: scribbleView) {
+//            scribbleView.beginScribble(adjustedLocationInView)
+//        }
 
 //        if enlargeView == nil {
 //            // 확대 이미지
@@ -85,19 +99,19 @@ class DrawView : UIImageView {
     
     var preMili: Date?
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let date = Date()
-        if let time = preMili {
-            print("\(date.timeIntervalSince(time))")
-        }
-        guard let touch = touches.first,
-            let coalescedTouches = event?.coalescedTouches(for: touch)
-//            let touchOrigin = touchOrigin
-            else { return }
-        
-        coalescedTouches.forEach {
-//            scribbleView.appendScribble($0.location(in: touchOrigin))
-            scribbleView.appendScribble($0.location(in: scribbleView))
-        }
+//        let date = Date()
+//        if let time = preMili {
+//            print("\(date.timeIntervalSince(time))")
+//        }
+//        guard let touch = touches.first,
+//            let coalescedTouches = event?.coalescedTouches(for: touch)
+////            let touchOrigin = touchOrigin
+//            else { return }
+//        
+//        coalescedTouches.forEach {
+////            scribbleView.appendScribble($0.location(in: touchOrigin))
+//            scribbleView.appendScribble($0.location(in: scribbleView))
+//        }
         
 //        let currentPoint = touch.location(in: self)
         
@@ -109,7 +123,7 @@ class DrawView : UIImageView {
 //        }
 
         setNeedsDisplay()
-        preMili = date
+//        preMili = date
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

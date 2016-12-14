@@ -90,14 +90,23 @@
                                             <outletCollection property="gestureRecognizers" destination="ClL-Sa-4yq" appends="YES" id="QzB-bz-Gra"/>
                                         </connections>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdO-tE-A2P" customClass="BezierView" customModule="StyleBook" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="jIb-UJ-b3v" appends="YES" id="rgv-x5-TUE"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="qdO-tE-A2P" firstAttribute="leading" secondItem="C9H-5t-a80" secondAttribute="leading" id="6C7-N8-Imf"/>
                                     <constraint firstItem="rqF-PM-xac" firstAttribute="trailing" secondItem="UQt-Ji-uNa" secondAttribute="trailing" id="6sg-rW-acv"/>
                                     <constraint firstItem="rqF-PM-xac" firstAttribute="bottom" secondItem="UQt-Ji-uNa" secondAttribute="bottom" id="8O3-Al-mTy"/>
                                     <constraint firstItem="UQt-Ji-uNa" firstAttribute="top" secondItem="C9H-5t-a80" secondAttribute="top" id="Ndi-I9-fHj"/>
                                     <constraint firstAttribute="bottom" secondItem="UQt-Ji-uNa" secondAttribute="bottom" id="Os1-Lt-yZ8"/>
                                     <constraint firstItem="UQt-Ji-uNa" firstAttribute="leading" secondItem="C9H-5t-a80" secondAttribute="leading" id="SZh-zp-6Ey"/>
+                                    <constraint firstAttribute="trailing" secondItem="qdO-tE-A2P" secondAttribute="trailing" id="cea-bQ-cdE"/>
                                     <constraint firstAttribute="trailing" secondItem="UQt-Ji-uNa" secondAttribute="trailing" id="fml-09-Hgy"/>
                                     <constraint firstItem="rqF-PM-xac" firstAttribute="leading" secondItem="UQt-Ji-uNa" secondAttribute="leading" id="gf9-vh-bto"/>
                                     <constraint firstItem="rqF-PM-xac" firstAttribute="top" secondItem="UQt-Ji-uNa" secondAttribute="top" id="xdQ-53-j1q"/>
@@ -112,7 +121,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="C9H-5t-a80" secondAttribute="trailing" constant="-16" id="GjF-Tc-D89"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M1M-eJ-vb2" secondAttribute="trailing" constant="-16" id="K8U-ZI-n3l"/>
                             <constraint firstItem="M1M-eJ-vb2" firstAttribute="leading" secondItem="LPU-9S-o3M" secondAttribute="leadingMargin" constant="-16" id="Lee-HQ-Jfb"/>
+                            <constraint firstItem="qdO-tE-A2P" firstAttribute="top" secondItem="prM-3G-Unt" secondAttribute="bottom" id="YIz-Ui-lBV"/>
                             <constraint firstItem="C9H-5t-a80" firstAttribute="leading" secondItem="LPU-9S-o3M" secondAttribute="leadingMargin" constant="-16" id="alF-sx-knW"/>
+                            <constraint firstItem="M1M-eJ-vb2" firstAttribute="top" secondItem="qdO-tE-A2P" secondAttribute="bottom" id="mOc-y2-s4v"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -141,6 +152,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="animateLinkWithDot" destination="qdO-tE-A2P" id="UT9-vh-x7Z"/>
                         <outlet property="draw" destination="rqF-PM-xac" id="d36-mF-bUF"/>
                         <outlet property="picture" destination="UQt-Ji-uNa" id="bIE-dm-JlN"/>
                     </connections>
@@ -149,6 +161,11 @@
                 <tapGestureRecognizer id="ClL-Sa-4yq">
                     <connections>
                         <action selector="touchImageWithGesture:" destination="ReO-jz-NzG" id="HnQ-I9-cP0"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="jIb-UJ-b3v">
+                    <connections>
+                        <action selector="touchDotWithGesture:" destination="ReO-jz-NzG" id="MjI-Ad-wK0"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

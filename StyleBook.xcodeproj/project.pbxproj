@@ -25,6 +25,8 @@
 		4C394C301DFE44740054B473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C2F1DFE44740054B473 /* Assets.xcassets */; };
 		4C394C331DFE44740054B473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C311DFE44740054B473 /* LaunchScreen.storyboard */; };
 		4C394C3C1DFE471E0054B473 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */; };
+		4CB9F2791E01470F00BC5CB3 /* BezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9F2771E01470F00BC5CB3 /* BezierView.swift */; };
+		4CB9F27A1E01470F00BC5CB3 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		4C394C341DFE44740054B473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		4C394C421DFE4EED0054B473 /* StyleBook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StyleBook-Bridging-Header.h"; sourceTree = "<group>"; };
+		4CB9F2771E01470F00BC5CB3 /* BezierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierView.swift; sourceTree = "<group>"; };
+		4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
 		7B85DD19694A33AAAF0C16EC /* Pods-StyleBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.debug.xcconfig"; sourceTree = "<group>"; };
 		8975A99178BD46AAF4C350AC /* Pods-StyleBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.release.xcconfig"; sourceTree = "<group>"; };
 		BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyleBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +137,8 @@
 				4C23B4DE1DFFA0620086B19E /* Scribblable.swift */,
 				4C23B4E91DFFB6720086B19E /* CropModel.swift */,
 				4C23B4EB1DFFB6E90086B19E /* EnlargeView.swift */,
+				4CB9F2771E01470F00BC5CB3 /* BezierView.swift */,
+				4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */,
 			);
 			path = StyleBook;
 			sourceTree = "<group>";
@@ -288,10 +294,12 @@
 				4C23B4D91DFF9F7A0086B19E /* DrawView.swift in Sources */,
 				4C23B4E31DFFA0DD0086B19E /* UIImageExtension.swift in Sources */,
 				4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */,
+				4CB9F2791E01470F00BC5CB3 /* BezierView.swift in Sources */,
 				4C394C281DFE44740054B473 /* MainController.swift in Sources */,
 				4C23B4E11DFFA0B90086B19E /* UIViewExtension.swift in Sources */,
 				4C23B4DD1DFFA0560086B19E /* UIBezierPathExtension.swift in Sources */,
 				4C23B4E81DFFA1930086B19E /* CropController.swift in Sources */,
+				4CB9F27A1E01470F00BC5CB3 /* CubicCurveAlgorithm.swift in Sources */,
 				4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */,
 				4C23B4EA1DFFB6720086B19E /* CropModel.swift in Sources */,
 				4C23B4EE1DFFBCC20086B19E /* CropDelegate.swift in Sources */,

@@ -49,12 +49,29 @@ class ScribbleView: UIView, Scribblable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     override func layoutSubviews() {
         // addSubview 로 추가한 뷰의 Frame 설정
     }
     
     func beginScribble(_ point: CGPoint) {
         interpolationPoints = [point]
+        let circlePath = UIBezierPath(arcCenter: point, radius: CGFloat(3), startAngle: CGFloat(0), endAngle:CGFloat(M_PI * 2), clockwise: true)
+        
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = circlePath.cgPath
+        
+        //change the fill color
+        shapeLayer.fillColor = UIColor.red.cgColor
+        //you can change the stroke color
+        shapeLayer.strokeColor = UIColor.red.cgColor
+        //you can change the line width
+        shapeLayer.lineWidth = 3.0
+        
+        drawingLayer.path = circlePath.cgPath
     }
     
     func appendScribble(_ point: CGPoint) {
@@ -80,7 +97,6 @@ class ScribbleView: UIView, Scribblable {
         
 //        drawingLayer.path = hermitePath.cgPath
         drawingLayer.path = UIBezierPath(catmullRomInterpolatedPoints: interpolationPoints, closed: false, alpha: 1)?.cgPath
-        
     }
     
     func endScribble() {
@@ -101,4 +117,5 @@ class ScribbleView: UIView, Scribblable {
     func clearScribble() {
         backgroundLayer.path = nil
     }
+    
 }

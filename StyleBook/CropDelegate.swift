@@ -8,12 +8,19 @@
 
 import UIKit
 
-extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,BezierViewDataSource {
     @IBAction func touchImage(gesture: UITapGestureRecognizer) {
-        let picker = UIImagePickerController()
-        picker.view.backgroundColor = UIColor.white
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+//        let picker = UIImagePickerController()
+//        picker.view.backgroundColor = UIColor.white
+//        picker.delegate = self
+//        present(picker, animated: true, completion: nil)
+    }
+    
+    @IBAction func touchDot(gesture: UITapGestureRecognizer) {
+        print("dot")
+        let point = gesture.location(in: animateLinkWithDot)
+        graphPoints.append(point)
+        animateLinkWithDot.refreshDot()
     }
     
     func modifiedImage(gesture: UILongPressGestureRecognizer) {
@@ -40,5 +47,10 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
             print("Something went wrong")
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    func bezierViewDataPoints(_ bezierView: BezierView) -> [CGPoint] {
+        
+        return graphPoints
     }
 }
