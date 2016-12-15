@@ -9,14 +9,11 @@
 /* Begin PBXBuildFile section */
 		2433E3F5E19D0B257E5ABCDA /* Pods_StyleBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */; };
 		4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4D61DFF823E0086B19E /* LoginController.swift */; };
-		4C23B4D91DFF9F7A0086B19E /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4D81DFF9F7A0086B19E /* DrawView.swift */; };
 		4C23B4DD1DFFA0560086B19E /* UIBezierPathExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4DC1DFFA0560086B19E /* UIBezierPathExtension.swift */; };
-		4C23B4DF1DFFA0620086B19E /* Scribblable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4DE1DFFA0620086B19E /* Scribblable.swift */; };
 		4C23B4E11DFFA0B90086B19E /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E01DFFA0B90086B19E /* UIViewExtension.swift */; };
 		4C23B4E31DFFA0DD0086B19E /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E21DFFA0DD0086B19E /* UIImageExtension.swift */; };
 		4C23B4E81DFFA1930086B19E /* CropController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E71DFFA1930086B19E /* CropController.swift */; };
 		4C23B4EA1DFFB6720086B19E /* CropModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E91DFFB6720086B19E /* CropModel.swift */; };
-		4C23B4EC1DFFB6E90086B19E /* EnlargeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4EB1DFFB6E90086B19E /* EnlargeView.swift */; };
 		4C23B4EE1DFFBCC20086B19E /* CropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4ED1DFFBCC20086B19E /* CropDelegate.swift */; };
 		4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C251DFE44740054B473 /* AppDelegate.swift */; };
 		4C394C281DFE44740054B473 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C271DFE44740054B473 /* MainController.swift */; };
@@ -26,19 +23,15 @@
 		4C394C331DFE44740054B473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C311DFE44740054B473 /* LaunchScreen.storyboard */; };
 		4C394C3C1DFE471E0054B473 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */; };
 		4CB9F2791E01470F00BC5CB3 /* BezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9F2771E01470F00BC5CB3 /* BezierView.swift */; };
-		4CB9F27A1E01470F00BC5CB3 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C23B4D61DFF823E0086B19E /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		4C23B4D81DFF9F7A0086B19E /* DrawView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		4C23B4DC1DFFA0560086B19E /* UIBezierPathExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtension.swift; sourceTree = "<group>"; };
-		4C23B4DE1DFFA0620086B19E /* Scribblable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scribblable.swift; sourceTree = "<group>"; };
 		4C23B4E01DFFA0B90086B19E /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4C23B4E21DFFA0DD0086B19E /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		4C23B4E71DFFA1930086B19E /* CropController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropController.swift; sourceTree = "<group>"; };
 		4C23B4E91DFFB6720086B19E /* CropModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropModel.swift; sourceTree = "<group>"; };
-		4C23B4EB1DFFB6E90086B19E /* EnlargeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnlargeView.swift; sourceTree = "<group>"; };
 		4C23B4ED1DFFBCC20086B19E /* CropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDelegate.swift; sourceTree = "<group>"; };
 		4C394C221DFE44740054B473 /* StyleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C394C251DFE44740054B473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +44,6 @@
 		4C394C3B1DFE471E0054B473 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KakaoOpenSDK.framework; sourceTree = "<group>"; };
 		4C394C421DFE4EED0054B473 /* StyleBook-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StyleBook-Bridging-Header.h"; sourceTree = "<group>"; };
 		4CB9F2771E01470F00BC5CB3 /* BezierView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierView.swift; sourceTree = "<group>"; };
-		4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
 		7B85DD19694A33AAAF0C16EC /* Pods-StyleBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.debug.xcconfig"; sourceTree = "<group>"; };
 		8975A99178BD46AAF4C350AC /* Pods-StyleBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StyleBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-StyleBook/Pods-StyleBook.release.xcconfig"; sourceTree = "<group>"; };
 		BBCDC5638EA5D12FA4F730CE /* Pods_StyleBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StyleBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,12 +125,8 @@
 				4C23B4E41DFFA0F80086B19E /* Extension */,
 				4C23B4E51DFFA15E0086B19E /* Storyboard */,
 				4C23B4E61DFFA16D0086B19E /* Controller */,
-				4C23B4D81DFF9F7A0086B19E /* DrawView.swift */,
-				4C23B4DE1DFFA0620086B19E /* Scribblable.swift */,
 				4C23B4E91DFFB6720086B19E /* CropModel.swift */,
-				4C23B4EB1DFFB6E90086B19E /* EnlargeView.swift */,
 				4CB9F2771E01470F00BC5CB3 /* BezierView.swift */,
-				4CB9F2781E01470F00BC5CB3 /* CubicCurveAlgorithm.swift */,
 			);
 			path = StyleBook;
 			sourceTree = "<group>";
@@ -290,8 +278,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */,
-				4C23B4DF1DFFA0620086B19E /* Scribblable.swift in Sources */,
-				4C23B4D91DFF9F7A0086B19E /* DrawView.swift in Sources */,
 				4C23B4E31DFFA0DD0086B19E /* UIImageExtension.swift in Sources */,
 				4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */,
 				4CB9F2791E01470F00BC5CB3 /* BezierView.swift in Sources */,
@@ -299,11 +285,9 @@
 				4C23B4E11DFFA0B90086B19E /* UIViewExtension.swift in Sources */,
 				4C23B4DD1DFFA0560086B19E /* UIBezierPathExtension.swift in Sources */,
 				4C23B4E81DFFA1930086B19E /* CropController.swift in Sources */,
-				4CB9F27A1E01470F00BC5CB3 /* CubicCurveAlgorithm.swift in Sources */,
 				4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */,
 				4C23B4EA1DFFB6720086B19E /* CropModel.swift in Sources */,
 				4C23B4EE1DFFBCC20086B19E /* CropDelegate.swift in Sources */,
-				4C23B4EC1DFFB6E90086B19E /* EnlargeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,22 +11,16 @@ import CoreData
 
 class CropModel:NSObject {
     
-    var draw: DrawView?
     var image: UIImageView?
     
-    var cropedImageView: EnlargeView?
     var widthRatio: CGFloat = 0
     var heightRatio: CGFloat = 0
     
-    init(draw: DrawView, image: UIImageView) {
-        self.draw = draw
+    init(image: UIImageView) {
         self.image = image
-        
-        self.draw?.displayView = image
     }
     
     func cropStart(pan: UIPanGestureRecognizer, long: UILongPressGestureRecognizer) {
-        if let draw = draw {
 //            let width = draw.maxX - draw.minX
 //            let height = draw.maxY - draw.minY
 //            let portion = CGRect(x: draw.minX, y: draw.minY, width: width, height: height)
@@ -56,22 +50,21 @@ class CropModel:NSObject {
 //            maskLayer.addSublayer(circleLayer)
 //            
 //            cropedImageView?.layer.mask = maskLayer
-        }
     }
     
     func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage{
         return image.resizedImageWithinRect(resizeWidth: newWidth)
     }
     
-    func cropImage(toRect rect:CGRect) -> UIImage{
-        if let draw = draw, let img = image?.image {
-            let sc = img.scale
-            let croprect = CGRect(x: draw.minX * sc, y: draw.minY * sc, width: rect.width * sc, height: rect.height * sc)
-            let imageRef = img.cgImage!.cropping(to: croprect)!
-            let croppedimage = UIImage(cgImage: imageRef, scale: img.scale, orientation: img.imageOrientation)
-            
-            return croppedimage
-        }
-        return UIImage()
-    }
+//    func cropImage(toRect rect:CGRect) -> UIImage{
+//        if let draw = draw, let img = image?.image {
+//            let sc = img.scale
+//            let croprect = CGRect(x: draw.minX * sc, y: draw.minY * sc, width: rect.width * sc, height: rect.height * sc)
+//            let imageRef = img.cgImage!.cropping(to: croprect)!
+//            let croppedimage = UIImage(cgImage: imageRef, scale: img.scale, orientation: img.imageOrientation)
+//            
+//            return croppedimage
+//        }
+//        return UIImage()
+//    }
 }

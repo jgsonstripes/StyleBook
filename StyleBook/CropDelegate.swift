@@ -9,18 +9,11 @@
 import UIKit
 
 extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,BezierViewDataSource {
-    @IBAction func touchImage(gesture: UITapGestureRecognizer) {
-//        let picker = UIImagePickerController()
-//        picker.view.backgroundColor = UIColor.white
-//        picker.delegate = self
-//        present(picker, animated: true, completion: nil)
-    }
     
     @IBAction func touchDot(gesture: UITapGestureRecognizer) {
-        print("dot")
         let point = gesture.location(in: animateLinkWithDot)
         graphPoints.append(point)
-        animateLinkWithDot.refreshDot()
+        animateLinkWithDot.addPoint()
     }
     
     func modifiedImage(gesture: UILongPressGestureRecognizer) {
@@ -30,9 +23,9 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     func crop(gesture: UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
             // move
-            let translation = gesture.translation(in: model?.cropedImageView)
-            gesture.view?.center = CGPoint(x: (gesture.view?.center.x)! + translation.x, y: (gesture.view?.center.y)! + translation.y)
-            gesture.setTranslation(CGPoint.zero, in: model?.cropedImageView)
+//            let translation = gesture.translation(in: model?.cropedImageView)
+//            gesture.view?.center = CGPoint(x: (gesture.view?.center.x)! + translation.x, y: (gesture.view?.center.y)! + translation.y)
+//            gesture.setTranslation(CGPoint.zero, in: model?.cropedImageView)
         }
     }
     
@@ -50,7 +43,6 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     func bezierViewDataPoints(_ bezierView: BezierView) -> [CGPoint] {
-        
         return graphPoints
     }
 }
