@@ -33,12 +33,18 @@ extension UIImage {
         return newImage
     }
     
-    func resizedImageWithinRect(resizeWidth: CGFloat) -> UIImage {
+    func resizedImageWithinRect(resizeWidth: CGFloat, resizeHeight: CGFloat) -> UIImage {
         let widthFactor = size.width / resizeWidth
+        let heightFactor = size.height / resizeHeight
         
-        let resizeFactor = widthFactor
-        
-        let newSize = CGSize(width: size.width/resizeFactor, height: size.height/resizeFactor)
+        var factor: CGFloat = 0
+        if widthFactor > heightFactor {
+            factor = widthFactor
+        } else {
+            factor = heightFactor
+        }
+        print("factor : \(factor)")
+        let newSize = CGSize(width: size.width/factor, height: size.height/factor)
         let resized = resizedImage(newSize: newSize)
         return resized
     }

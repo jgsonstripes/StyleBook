@@ -157,6 +157,11 @@
                         <action selector="touchDotWithGesture:" destination="ReO-jz-NzG" id="MjI-Ad-wK0"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="BdP-pE-Mew">
+                    <connections>
+                        <action selector="moveCropImageWithGesture:" destination="ReO-jz-NzG" id="Dnw-KO-cMs"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1628" y="-645.42728635682158"/>
         </scene>

@@ -13,6 +13,11 @@ protocol BezierViewDataSource: class {
     func bezierViewDataPoints(_ bezierView: BezierView) -> [CGPoint]
 }
 
+struct BackPosition {
+    var point: CAShapeLayer?
+    var line: CAShapeLayer?
+}
+
 class BezierView: UIView {
    
     fileprivate let kStrokeAnimationKey = "StrokeAnimationKey"
@@ -24,6 +29,8 @@ class BezierView: UIView {
     
     var pointLayers = [CAShapeLayer]()
     var lineLayers = [CAShapeLayer]()
+    
+    var backStack = [BackPosition]()
     
     fileprivate var dataPoints: [CGPoint]? {
         return self.dataSource?.bezierViewDataPoints(self)
@@ -48,17 +55,35 @@ class BezierView: UIView {
         drawSmoothLines()
         drawPoints()
         drawEndLine()
-        print("\(self.layer.sublayers?.count)")
+        
+        if let point = pointLayers.last, 0 <= (lineLayers.count - 2) {
+            var back = BackPosition()
+            back.point = point
+            back.line = lineLayers[lineLayers.count - 2]
+            
+            self.backStack.append(back)
+        }
     }
     
     func backPointPosition() {
-        
+        if backStack.count >= 1 {
+            backStack.last?.line?.removeFromSuperlayer()
+            backStack.last?.point?.removeFromSuperlayer()
+            if let line = endLine {
+                line.removeFromSuperlayer()
+            }
+            backStack.removeLast()
+        } else {
+            clearAllPoint()
+        }
     }
     
     func clearAllPoint() {
         self.layer.sublayers?.forEach({
             $0.removeFromSuperlayer()
         })
+        firstPoint = nil
+        endLine = nil
     }
     
     fileprivate func drawPoints(){

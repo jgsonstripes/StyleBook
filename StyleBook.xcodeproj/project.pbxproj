@@ -15,6 +15,7 @@
 		4C23B4E81DFFA1930086B19E /* CropController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E71DFFA1930086B19E /* CropController.swift */; };
 		4C23B4EA1DFFB6720086B19E /* CropModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4E91DFFB6720086B19E /* CropModel.swift */; };
 		4C23B4EE1DFFBCC20086B19E /* CropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C23B4ED1DFFBCC20086B19E /* CropDelegate.swift */; };
+		4C2BDA131E02822D0079CC6F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2BDA121E02822D0079CC6F /* ArrayExtension.swift */; };
 		4C394C261DFE44740054B473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C251DFE44740054B473 /* AppDelegate.swift */; };
 		4C394C281DFE44740054B473 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C394C271DFE44740054B473 /* MainController.swift */; };
 		4C394C2B1DFE44740054B473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C394C291DFE44740054B473 /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		4C23B4E71DFFA1930086B19E /* CropController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropController.swift; sourceTree = "<group>"; };
 		4C23B4E91DFFB6720086B19E /* CropModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropModel.swift; sourceTree = "<group>"; };
 		4C23B4ED1DFFBCC20086B19E /* CropDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropDelegate.swift; sourceTree = "<group>"; };
+		4C2BDA121E02822D0079CC6F /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		4C394C221DFE44740054B473 /* StyleBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StyleBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C394C251DFE44740054B473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C394C271DFE44740054B473 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				4C23B4DC1DFFA0560086B19E /* UIBezierPathExtension.swift */,
 				4C23B4E01DFFA0B90086B19E /* UIViewExtension.swift */,
 				4C23B4E21DFFA0DD0086B19E /* UIImageExtension.swift */,
+				4C2BDA121E02822D0079CC6F /* ArrayExtension.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				4C394C2E1DFE44740054B473 /* StyleBook.xcdatamodeld in Sources */,
 				4C23B4E31DFFA0DD0086B19E /* UIImageExtension.swift in Sources */,
 				4C23B4D71DFF823E0086B19E /* LoginController.swift in Sources */,
+				4C2BDA131E02822D0079CC6F /* ArrayExtension.swift in Sources */,
 				4CB9F2791E01470F00BC5CB3 /* BezierView.swift in Sources */,
 				4C394C281DFE44740054B473 /* MainController.swift in Sources */,
 				4C23B4E11DFFA0B90086B19E /* UIViewExtension.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate,BezierViewDataSource {
+extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, BezierViewDataSource {
     
     @IBAction func touchDot(gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: animateLinkWithDot)
@@ -16,17 +16,40 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
         animateLinkWithDot.addPoint()
     }
     
-    func modifiedImage(gesture: UILongPressGestureRecognizer) {
-        print("long press")
+    @IBAction func picture(_ sender: UIBarButtonItem) {
+        let picker = UIImagePickerController()
+        picker.view.backgroundColor = UIColor.white
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
     
-    func crop(gesture: UIPanGestureRecognizer) {
+    @IBAction func crop(_ sender: UIBarButtonItem) {
+        let cropImage = model.cropStart(image: picture.image!, cropPath: graphPoints, cropRect: cropRect, pan: UIPanGestureRecognizer(target: self, action: #selector(self.moveCropImage(gesture:))))
+        cropImage.center = self.view.center
+        cropRect.reset()
+        self.view.addSubview(cropImage)
+    }
+    
+    @IBAction func moveCropImage(gesture: UIPanGestureRecognizer) {
         if gesture.state == .began || gesture.state == .changed {
-            // move
-//            let translation = gesture.translation(in: model?.cropedImageView)
-//            gesture.view?.center = CGPoint(x: (gesture.view?.center.x)! + translation.x, y: (gesture.view?.center.y)! + translation.y)
-//            gesture.setTranslation(CGPoint.zero, in: model?.cropedImageView)
+            let translation = gesture.translation(in: self.view)
+            gesture.view?.center = CGPoint(x: (gesture.view?.center.x)! + translation.x, y: (gesture.view?.center.y)! + translation.y)
+            gesture.setTranslation(CGPoint.zero, in: self.view)
         }
+    }
+    
+    @IBAction func clear(_ sender: UIBarButtonItem) {
+        graphPoints.removeAll()
+        animateLinkWithDot.clearAllPoint()
+    }
+    
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        animateLinkWithDot.backPointPosition()
+        self.graphPoints.removeLastAndFirst()
+    }
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -35,7 +58,7 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let imagePicker = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            picture.image = model?.resizeImage(image: imagePicker, newWidth: picture.bounds.size.width)
+            picture.image = model.resizeImage(image: imagePicker, newHeight: picture.bounds.size.height, newWidth: picture.bounds.size.width)
         } else{
             print("Something went wrong")
         }
