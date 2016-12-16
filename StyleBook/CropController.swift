@@ -17,39 +17,54 @@ struct CropRectangle {
     mutating func reset() {
         self = CropRectangle()
     }
+    
+    mutating func resize(frame: CGSize, resize: UIImage.ImageAndBlankSize?) {
+        if let size = resize {
+            if size.isSize {
+                self.minX-=(frame.width - size.widthSize)/2
+                self.maxX-=(frame.width - size.widthSize)/2
+            } else {
+                self.minY-=(frame.height - size.heightSize)/2
+                self.maxY-=(frame.height - size.heightSize)/2
+            }
+        }
+    }
 }
 
 class CropController: UIViewController {
     
     @IBOutlet weak var picture: UIImageView!
     @IBOutlet weak var animateLinkWithDot: BezierView!
+    @IBOutlet weak var cropBottomScroll: UIScrollView!
     
     let model = CropModel()
     var cropRect = CropRectangle()
+    var resizeImage : UIImage.ImageAndBlankSize?
+    
     var graphPoints:[CGPoint] = [] {
-        didSet {
-            graphPoints.forEach {
-                if cropRect.minX > $0.x {
-                    cropRect.minX = $0.x
-                } else if cropRect.maxX < $0.x {
-                    cropRect.maxX = $0.x
+        willSet {
+            if newValue.count > 0 {
+                guard let input = newValue.last else {
+                    return
                 }
-                
-                if cropRect.minY > $0.y {
-                    cropRect.minY = $0.y
-                } else if cropRect.maxY < $0.y {
-                    cropRect.maxY = $0.y
-                }
-                
-                print("minX : \(cropRect.minX), minY : \(cropRect.minY), maxX : \(cropRect.maxX), maxY : \(cropRect.maxY)")
+                if (cropRect.minX > input.x) { (cropRect.minX = input.x) }
+                if (cropRect.maxX < input.x) { (cropRect.maxX = input.x) }
+                if (cropRect.minY > input.y) { (cropRect.minY = input.y) }
+                if (cropRect.maxY < input.y) { (cropRect.maxY = input.y) }
             }
+        }
+        didSet {
+            animateLinkWithDot.addPoint()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         animateLinkWithDot.dataSource = self
-        // Do any additional setup after loading the view.
+        cropBottomScroll.delegate = self
+        cropBottomScroll.contentSize = CGSize(width: cropBottomScroll.bounds.size.width / 4, height: cropBottomScroll.bounds.size.height)
+        cropBottomScroll.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        cropBottomScroll.contentOffset = CGPoint(x: 0, y: 0)
     }
 
     override func didReceiveMemoryWarning() {

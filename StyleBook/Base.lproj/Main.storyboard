@@ -71,8 +71,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-eJ-vb2">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-eJ-vb2">
                                 <rect key="frame" x="0.0" y="586" width="375" height="81"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="poL-vB-yiY"/>
                                 </constraints>
@@ -148,6 +149,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="animateLinkWithDot" destination="qdO-tE-A2P" id="UT9-vh-x7Z"/>
+                        <outlet property="cropBottomScroll" destination="M1M-eJ-vb2" id="uyc-ue-EqU"/>
                         <outlet property="picture" destination="UQt-Ji-uNa" id="bIE-dm-JlN"/>
                     </connections>
                 </viewController>

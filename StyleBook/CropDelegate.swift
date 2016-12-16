@@ -8,12 +8,10 @@
 
 import UIKit
 
-extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, BezierViewDataSource {
+extension CropController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, BezierViewDataSource {
     
     @IBAction func touchDot(gesture: UITapGestureRecognizer) {
-        let point = gesture.location(in: animateLinkWithDot)
-        graphPoints.append(point)
-        animateLinkWithDot.addPoint()
+        graphPoints.append(gesture.location(in: animateLinkWithDot))
     }
     
     @IBAction func picture(_ sender: UIBarButtonItem) {
@@ -24,9 +22,23 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     @IBAction func crop(_ sender: UIBarButtonItem) {
-        let cropImage = model.cropStart(image: picture.image!, cropPath: graphPoints, cropRect: cropRect, pan: UIPanGestureRecognizer(target: self, action: #selector(self.moveCropImage(gesture:))))
-        cropImage.center = self.view.center
+        cropRect.resize(frame: picture.bounds.size, resize: resizeImage)
+        var widthBlank:CGFloat = 0
+        var heightBlank:CGFloat = 0
+        
+        if (resizeImage?.isSize)! {
+            widthBlank = (self.picture.bounds.size.width - (self.resizeImage?.widthSize)!)/2
+        } else {
+            heightBlank = (self.picture.bounds.size.height - (self.resizeImage?.heightSize)!)/2
+        }
+        
+        let resizePoint = graphPoints.map {
+            CGPoint(x: $0.x-widthBlank-cropRect.minX, y: $0.y-heightBlank-cropRect.minY)
+        }
+        
+        let cropImage = model.cropStart(imageView: picture, cropPath: resizePoint, cropRect: cropRect, pan: UIPanGestureRecognizer(target: self, action: #selector(self.moveCropImage(gesture:))))
         cropRect.reset()
+        cropImage.center = self.view.center
         self.view.addSubview(cropImage)
     }
     
@@ -44,8 +56,8 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     @IBAction func back(_ sender: UIBarButtonItem) {
+        graphPoints.removeLastAndFirst()
         animateLinkWithDot.backPointPosition()
-        self.graphPoints.removeLastAndFirst()
     }
     
     @IBAction func save(_ sender: UIBarButtonItem) {
@@ -58,7 +70,9 @@ extension CropController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let imagePicker = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            picture.image = model.resizeImage(image: imagePicker, newHeight: picture.bounds.size.height, newWidth: picture.bounds.size.width)
+            let frameSize = picture.bounds.size
+            self.resizeImage = imagePicker.resizedImageWithinRect(resizeWidth: frameSize.width, resizeHeight: frameSize.height)
+            picture.image = self.resizeImage?.image
         } else{
             print("Something went wrong")
         }

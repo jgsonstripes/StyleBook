@@ -84,6 +84,8 @@ class BezierView: UIView {
         })
         firstPoint = nil
         endLine = nil
+        pointLayers.removeAll()
+        lineLayers.removeAll()
     }
     
     fileprivate func drawPoints(){

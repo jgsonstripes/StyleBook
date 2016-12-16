@@ -33,19 +33,39 @@ extension UIImage {
         return newImage
     }
     
-    func resizedImageWithinRect(resizeWidth: CGFloat, resizeHeight: CGFloat) -> UIImage {
+    struct ImageAndBlankSize{
+        var image: UIImage?
+        var widthSize: CGFloat = 0 {
+            didSet {
+                isSize = true
+            }
+        }
+        var heightSize: CGFloat = 0 {
+            didSet {
+                isSize = false
+            }
+        }
+        var isSize: Bool = true
+    }
+    
+    func resizedImageWithinRect(resizeWidth: CGFloat, resizeHeight: CGFloat) -> ImageAndBlankSize {
         let widthFactor = size.width / resizeWidth
         let heightFactor = size.height / resizeHeight
+        var imageAndBlank = ImageAndBlankSize()
         
         var factor: CGFloat = 0
+        
         if widthFactor > heightFactor {
             factor = widthFactor
+            imageAndBlank.heightSize = size.height / factor
         } else {
             factor = heightFactor
+            imageAndBlank.widthSize = size.width / factor
         }
-        print("factor : \(factor)")
-        let newSize = CGSize(width: size.width/factor, height: size.height/factor)
-        let resized = resizedImage(newSize: newSize)
-        return resized
+        
+        let resized = resizedImage(newSize: CGSize(width: size.width / factor, height: size.height / factor))
+        imageAndBlank.image = resized
+        
+        return imageAndBlank
     }
 }

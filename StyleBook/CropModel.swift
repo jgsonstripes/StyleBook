@@ -15,44 +15,40 @@ class CropModel:NSObject {
     
     override init() {}
     
-    func cropStart(image: UIImage, cropPath: [CGPoint], cropRect: CropRectangle, pan: UIPanGestureRecognizer) -> UIImageView{
+    func cropStart(imageView: UIImageView, cropPath: [CGPoint], cropRect: CropRectangle, pan: UIPanGestureRecognizer) -> UIImageView{
         let width = cropRect.maxX - cropRect.minX
         let height = cropRect.maxY - cropRect.minY
-        let scale = image.scale
-        let portion = CGRect(x: cropRect.minX * scale, y: cropRect.minY * scale, width: width * scale, height: height * scale)
+        let scale = imageView.image?.scale
+        let portion = CGRect(x: cropRect.minX * scale!, y: cropRect.minY * scale!, width: width * scale!, height: height * scale!)
         
-        let cropedImageView = UIImageView(image: cropImage(img: image, toRect: portion))
+        let cropedImageView = UIImageView(image: cropImage(img: imageView.image!, toRect: portion))
         cropedImageView.isUserInteractionEnabled = true
-        // 잘라진 이미지를 addSubview
-        
         cropedImageView.addGestureRecognizer(pan)
         
-//        let path = UIBezierPath()
-//        
-//        cropPath.enumerated().forEach { (index, point) in
-//            if index == 0 {
-//                path.move(to: point)
-//            } else {
-//                path.addLine(to: point)
-//            }
-//        }
-//        path.close()
-//        
-//        let maskLayer = CALayer()
-//        maskLayer.frame = cropedImageView.bounds
-//        let circleLayer = CAShapeLayer()
-//        //assume the circle's radius is 100
-//        circleLayer.path = path.cgPath
-//        circleLayer.fillColor = UIColor.black.cgColor
-//        maskLayer.addSublayer(circleLayer)
-//        
-//        cropedImageView.layer.mask = maskLayer
+        let path = UIBezierPath()
+        
+        cropPath.enumerated().forEach { (index, point) in
+            if index == 0 {
+                path.move(to: point)
+            } else {
+                path.addLine(to: point)
+            }
+        }
+        path.close()
+        
+        let maskLayer = CALayer()
+        maskLayer.frame = cropedImageView.bounds
+        let circleLayer = CAShapeLayer()
+        circleLayer.path = path.cgPath
+        circleLayer.fillColor = UIColor.black.cgColor
+        maskLayer.addSublayer(circleLayer)
+        cropedImageView.layer.mask = maskLayer
         
         return cropedImageView
     }
     
     func resizeImage(image: UIImage, newHeight: CGFloat, newWidth: CGFloat) -> UIImage{
-        return image.resizedImageWithinRect(resizeWidth: newWidth, resizeHeight: newHeight)
+        return image.resizedImageWithinRect(resizeWidth: newWidth, resizeHeight: newHeight).image!
     }
     
     func cropImage(img: UIImage, toRect rect:CGRect) -> UIImage{
